@@ -89,6 +89,7 @@ class PatientResource extends Resource
                     ]),
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])
@@ -113,6 +114,7 @@ class PatientResource extends Resource
     {
         return [
             'index' => Pages\ListPatients::route('/'),
+            'view' => Pages\ViewPatient::route('/{record}'),
             'create' => Pages\CreatePatient::route('/create'),
             'edit' => Pages\EditPatient::route('/{record}/edit'),
         ];
