@@ -19,6 +19,20 @@ class PatientResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $activeNavigationIcon = 'heroicon-o-document-text';
+
+    // protected static ?string $navigationLabel = 'Custom Navigation Label';
+
+    protected static ?int $navigationSort = 3;
+
+    protected static ?string $navigationGroup = 'Treatments';
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
+
     public static function form(Form $form): Form
     {
         return $form
